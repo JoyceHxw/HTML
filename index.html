@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .page {
+            width: 1000px;
+            height: 700px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-rows: 0.5fr 4fr 1fr 1.5fr 2fr 2fr 1.5fr 2fr;
+            grid-template-areas: 
+                'header'
+                'banner'
+                'guide'
+                'title'
+                'category'
+                'introduction'
+                'exhibition'
+                'footer';
+            grid-gap: 0px;
+        }
+        @font-face {
+            font-family: pacifico;
+            src: url(fonts/pacifico-webfont.eot),
+                url(fonts/pacifico-webfont.svg),
+                url(fonts/pacifico-webfont.ttf),
+                url(fonts/pacifico-webfont.woff),
+                url(fonts/pacifico-webfont.woff2);
+        }
+/* part1 */
+        .header {
+            grid-area: header;
+            width: 1000px;
+            height: 25px;
+            background-color: rgb(245, 244, 244);
+        }
+        .header .inner {
+            width: 650px;
+            height: 250x;
+            margin: 0px auto;
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            grid-template-areas: 
+                'logo navigations';
+        }
+        .header .inner .logo {
+            grid-area: logo;
+            width: 150px;
+            height: 25px;
+        }
+        .header .inner .logo img {
+            width: 70px;
+            height: 25px;
+        }
+        .header .inner .navigations {
+            grid-area: navigations;
+            width: 500px;
+            height: 25px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .header .inner .navigations .img1 {
+            width: 7px;
+            height: 7px;
+        }
+        .header .inner .navigations a {
+            text-decoration: none;
+            font-size: 9px;
+            font-weight: 700;
+            color: rgb(105, 105, 105);
+        }
+        .header .inner .navigations .img2 {
+            width: 7px;
+            height: 7px;
+            margin-right: 30px;
+            transform: rotate(270deg);
+        }
+        .header .inner .navigations .home a {
+            margin-right: 30px;
+        }
+        .header .inner .navigations .layout:hover .img2 {
+            transform: rotate(360deg);
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .megamenu:hover .img2 {
+            transform: rotate(360deg);
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .login:hover .img2 {
+            transform: rotate(360deg);
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .layout .popup1 {
+            width: 100px;
+            height: 0px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: -20px;
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .layout:hover .popup1 {
+            height: 200px;
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .layout .popup1 a{
+            font-size: 9px;
+            font-weight: 700;
+            color: black;
+            text-decoration: none;
+        }
+        .header .inner .navigations .layout .popup1 .part {
+            width: 90px;
+            background-color: rgba(117, 194, 207, 0.6);
+            border-radius: 2px;
+        }
+        .header .inner .navigations .layout .popup1 .part:nth-child(1) {
+            height: 10px;
+            line-height: 4px;
+        }
+        .header .inner .navigations .layout .popup1 .part:nth-child(2) {
+            height: 35px;
+            line-height: 30px;
+        }
+        .header .inner .navigations .layout .popup1 .part:nth-child(3) {
+            height: 15px;
+            line-height: 10px; 
+        }
+        .header .inner .navigations .layout .popup1 .part:nth-child(4) {
+            height: 15px;
+            line-height: 10px;
+        }
+        .header .inner .navigations .layout .popup1 .part:nth-child(5) {
+            height: 30px;
+            line-height: 25px;
+        }
+        .header .inner .navigations .layout .popup1 .part:nth-child(6) {
+            height: 30px;
+            line-height: 25px; 
+        }
+        .header .inner .navigations .layout .popup1 .part:nth-child(7) {
+            height: 20px;
+            line-height: 15px; 
+        }
+        .header .inner .navigations .layout .popup1 .part:nth-child(8) {
+            height: 20px;
+            line-height: 15px;
+        }
+        .header .inner .navigations .megamenu .popup2 {
+            width: 100px;
+            height: 0px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: -10px;
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .megamenu:hover .popup2 {
+            height: 120px;
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .megamenu .popup2 a{
+            font-size: 9px;
+            font-weight: 700;
+            color: black;
+            text-decoration: none;
+        }
+        .header .inner .navigations .megamenu .popup2 .part1 {
+            width: 90px;
+            height: 20px;
+            border-radius: 2px;
+            line-height: 15px;
+        }
+        .header .inner .navigations .login .popup3 {
+            width: 200px;
+            height: 0px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: -10px;
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .login:hover .popup3 {
+            height: 120px;
+            transition: all 0.5s;
+        }
+        .header .inner .navigations .login .popup3 p {
+            font-family: 'pacifico';
+            font-size: 9px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+        .header .inner .navigations .login .popup3 #i1{
+            width: 180px;
+            height: 25px;
+            font-size: 9px;
+            padding-left: 5px;
+            margin: 0px auto;
+        }
+        .header .inner .navigations .login .popup3 #i2{
+            width: 180px;
+            height: 25px;
+            font-size: 9px;
+            padding-left: 5px;
+            margin: 0px auto;
+        }
+        .header .inner .navigations .login .popup3 #i3{
+            font-size: 9px;
+            font-weight: 700;
+            width: 180px;
+            height: 25px;
+            background-color: rgb(117, 194, 207);
+            /* margin-top: 25px; */
+            color: white;
+            border-style: none;
+            /* padding-left: 0px; */
+        }
+/* part2 */
+        .banner {
+            grid-area: 'banner';
+            width: 1000px;
+            height: 200px;
+            background-image: url(images/bg-main.jpg);
+            background-repeat: no-repeat;
+            background-size: 1000px 340px;
+            background-position: 0px -120px;
+        }
+        .words {
+            width: 650px;
+            margin: 0 auto;
+            margin-top: 50px;
+            text-align: left;
+            color: white;
+        }
+        .words .p1 {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 200%;
+        }
+        .words .p2 {
+            font-size: 14px;
+        }
+/* part3 */
+        #guide {
+            grid-area: guide;
+            width: 1000px;
+            height: 70px;
+            background-color: rgb(245, 244, 244);
+        }
+        .guide_inner {
+            width: 650px;
+            height: 50px;
+            margin: 0 auto;
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: 
+                'discover leisure news';
+        }
+        .img3 {
+            width: 25px;
+            height: 25px;
+        }
+        .title a{
+            grid-area: title;
+            font-size: 9px;
+            font-weight: 700;
+            color: orange;
+            line-height: 22px;
+            text-decoration: none;
+        }
+        .picture {
+            grid-area: picture;
+            width: 25px;
+            height: 25px;
+            justify-self: end;
+        }
+        .paragraph {
+            position: absolute;
+            margin-top: 29px;
+            height: 50px;
+            font-size: 7px;
+            line-height: 10px;
+            background-color: rgba(245, 244, 244, 0.7);
+            transition: all 0.6s ease-in-out;
+        }
+        .paragraph:hover {
+            margin-top: 0px;
+        }
+        .btn {
+            width: 5px;
+            height: 2px;
+            border-radius: 0.5px;
+            background-color: rgb(10, 96, 177);
+            transition: all 1s ease
+        }
+        .discover {
+            grid-area: discover;
+            width: 200px;
+            height: 50px;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 7fr 1fr;
+            grid-template-areas: 
+                'title picture';
+        }
+        .discover:hover .btn{
+            width: 50px;
+        }
+        .leisure {
+            grid-area: leisure;
+            width: 200px;
+            height: 50px;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 7fr 1fr;
+            grid-template-areas: 
+                'title picture';
+        }
+        .leisure:hover .btn{
+            width: 50px;
+        }
+        .news {
+            grid-area: news;
+            width: 200px;
+            height: 50px;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 7fr 1fr;
+            grid-template-areas: 
+                'title picture';
+        }
+        .news:hover .btn{
+            width: 50px;
+        }
+/* part4 */
+        .title {
+            grid-area: title;
+            height: 75px;
+        }
+        .title .p1{
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'pacifico';
+        }
+        .title .p2{
+            margin-top: 5px;
+            text-align: center;
+            font-size: 7px;
+            color: rgb(168, 169, 170);
+        }
+/* part5 */
+        #category {
+            grid-area: category;
+            width: 650px;
+            height: 120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: 
+                'natural cultural modern'
+                'study customs guider';
+            justify-items: center;
+        }
+        .natural {
+            grid-area: natural;
+            display: grid;
+            width: 200px;
+            height: 50px;
+            grid-template-columns: 1fr 7fr;
+            grid-template-areas: 
+                'picture title';
+            position: relative;
+            overflow: hidden;
+        }
+        .cultural {
+            grid-area: cultural;
+            display: grid;
+            width: 200px;
+            height: 50px;
+            grid-template-columns: 1fr 7fr;
+            grid-template-areas: 
+                'picture title';
+            position: relative;
+            overflow: hidden;
+        }
+        .modern {
+            grid-area: modern;
+            display: grid;
+            width: 200px;
+            height: 50px;
+            grid-template-columns: 1fr 7fr;
+            grid-template-areas: 
+                'picture title';
+            position: relative;
+            overflow: hidden;
+        }
+        .study {
+            grid-area: study;
+            display: grid;
+            width: 200px;
+            height: 50px;
+            grid-template-columns: 1fr 7fr;
+            grid-template-areas: 
+                'picture title';
+            position: relative;
+            overflow: hidden;
+        }
+        .customs {
+            grid-area: customs;
+            display: grid;
+            width: 200px;
+            height: 50px;
+            grid-template-columns: 1fr 7fr;
+            grid-template-areas: 
+                'picture title';
+            position: relative;
+            overflow: hidden;
+        }
+        .guider {
+            grid-area: guider;
+            display: grid;
+            width: 200px;
+            height: 50px;
+            grid-template-columns: 1fr 7fr;
+            grid-template-areas: 
+                'picture title';
+            position: relative;
+            overflow: hidden;
+        }
+        .picture {
+            grid-area: picture;
+            width: 25px;
+            height: 25px;
+        }
+        .img4{
+            width: 25px;
+            height: 25px;
+        }
+        .title1 a{
+            grid-area: title;
+            margin-left: 5px;
+            font-size: 9px;
+            font-weight: 700;
+            color: rgb(131, 212, 9);
+            text-decoration: none;
+        }
+        .paragraph1 {
+            position: absolute;
+            margin-top: 20px;
+            margin-left: 30px;
+            height: 50px;
+            font-size: 7px;
+            line-height: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            transition: all 0.6s ease-in-out;
+        }
+        .paragraph1:hover {
+            margin-top: 0px;
+        }
+/* part6 */
+        #introduction {
+            grid-area: introduction;
+            width: 650px;
+            height: 150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: 
+                'title title title title'
+                'dalian beijing shanghai chengdu'
+                'dl_r bj_r sh_r cd_r';
+            justify-items: center;
+        }
+        #introduction .title {
+            grid-area: title;
+            width: 650px;
+            height: 20px;
+            margin-top: 10px;
+        }
+        #introduction .title  p{
+            font-size: 9px;
+            font-weight: 700;
+            line-height: 20px;
+        }
+        #introduction .title #btn {
+            width: 5px;
+            height: 2px;
+            border-radius: 0.5px;
+            background-color: rgb(10, 96, 177);
+            transition: all 1s ease
+        }
+        #introduction:hover #btn{
+            width: 50px;
+        }
+        .dalian {
+            grid-area: dalian;
+            width: 137px;
+            height: 120px;
+            margin-top: 10px;
+            display: grid;
+            grid-template-rows: 1fr 0.5fr;
+            grid-template-areas: 
+                'picture'
+                'paragraph';
+            overflow: hidden;
+        }
+        .dl_read {
+            grid-area: dl_r;
+            width: 137px;
+            height: 10px;
+            line-height: 2px;
+        }
+        .beijing {
+            grid-area: beijing;
+            width: 137px;
+            height: 120px;
+            margin-top: 10px;
+            display: grid;
+            grid-template-rows: 1fr 0.5fr;
+            grid-template-areas: 
+                'picture'
+                'paragraph';
+            overflow: hidden;
+        }
+        .bj_read {
+            grid-area: bj_r;
+            width: 137px;
+            height: 10px;
+            line-height: 2px;
+        }
+        .shanghai {
+            grid-area: shanghai;
+            width: 137px;
+            height: 120px;
+            margin-top: 10px;
+            display: grid;
+            grid-template-rows: 1fr 0.5fr;
+            grid-template-areas: 
+                'picture'
+                'paragraph';
+            overflow: hidden;
+        }
+        .sh_read {
+            grid-area: sh_r;
+            width: 137px;
+            height: 10px;
+            line-height: 2px;
+        }
+        .chengdu {
+            grid-area: chengdu;
+            width: 137px;
+            height: 120px;
+            margin-top: 10px;
+            display: grid;
+            grid-template-rows: 1fr 0.5fr;
+            grid-template-areas: 
+                'picture'
+                'paragraph';
+            overflow: hidden;
+        }
+        .cd_read {
+            grid-area: cd_r;
+            width: 137px;
+            height: 10px;
+            line-height: 2px;
+        }
+        .picture_outer {
+            grid-area: picture;
+            width: 137px;
+            height: 87px;
+            border: 1px solid black;
+            border-radius: 2px;
+        }
+        .picture2 {
+            width: 130px;
+            height: 80px;
+            margin: 2.5px auto;
+        }
+        .img5 {
+            width: 130px;
+            height: 80px;
+        }
+        .paragraph2 {
+            grid-area: paragraph;
+            font-size: 7px;
+            width: 137px;
+            height: 30px;
+            margin-top: 5px;
+        }
+        a{
+            font-size: 7px;
+            text-decoration: none;
+            color:rgb(10, 96, 177);
+        }
+/* part7 section1*/
+        #exhibition {
+            grid-area: exhibition;
+            width: 650px;
+            height: 80px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 6fr 1fr;
+            grid-template-areas: 
+                'section1 section2';
+            justify-items: center;
+            margin-top: 40px;
+        }
+        .section1 {
+            grid-area: section1;
+            width: 520px;
+            height: 80px;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: 
+                'title1'
+                'pictures';
+        }
+        .section1 .title2 {
+            grid-area: title1;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 5fr 1fr;
+            grid-template-areas: 
+                'p p'
+                'btn1 btn2';
+            width: 520px;
+            height: 20px;
+        }
+        .section1 .title2 p{
+            grid-area: p;
+            font-size: 9px;
+            font-weight: 700;
+            line-height: 20px;
+        }
+        .section1 .title2 #btn {
+            grid-area: btn1;
+            width: 5px;
+            height: 2px;
+            border-radius: 0.5px;
+            background-color: rgb(10, 96, 177);
+            transition: all 1s ease
+        }
+        .section1:hover #btn{
+            width: 50px;
+        }
+        .section1 .title2 #btn_2 {
+            grid-area: btn2;
+            justify-self: end;
+            margin-right: 30px;
+            display: flex;
+            transition: all 1s ease
+        }
+        .section1 .title2 #btn_2 #btn1 {
+            width: 4px;
+            height: 4px;
+            border-radius: 2px;
+            background-color: rgb(73, 75, 77);
+        }
+        .section1 .title2 #btn_2 #btn2 {
+            width: 4px;
+            height: 4px;
+            border-radius: 2px;
+            margin-left: 2px;
+            background-color: rgb(161, 164, 169);
+        }
+        .section1 .title2 #btn_2 #btn2:hover {
+            background-color: rgb(73, 75, 77);
+        }
+        .section1 .pictures {
+            grid-area: pictures;
+            width: 500px;
+            height: 50px;
+            display: flex;
+            margin-top: 10px;
+            justify-content: space-around;
+        }
+        .pic_outer {
+            width: 75px;
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 1.5px;
+        }
+        .section1 .pictures .pic {
+            background-size: 70px 45px;
+            width: 70px;
+            height: 45px;
+            margin: 1.5px;
+        }
+/* part7 section2 */
+        .section2 {
+            grid-area: section2;
+            width: 130px;
+            height: 80px;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: 
+                'title2'
+                'list';
+        }
+        .section2 .title3 {
+            grid-area: title2;
+            width: 120px;
+            height: 20px;
+        }
+        .section2 .title3 p{
+            font-size: 9px;
+            font-weight: 700;
+            line-height: 20px;
+        }
+        .section2 .title3 #btn {
+            width: 5px;
+            height: 2px;
+            border-radius: 0.5px;
+            background-color: rgb(10, 96, 177);
+            transition: all 1s ease
+        }
+        .section2:hover #btn{
+            width: 50px;
+        }
+        .section2 .list {
+            grid-area: list;
+            font-size: 7px;
+            color: black;
+        }
+        .section2 .list a {
+            color: rgb(106, 174, 4);
+            text-decoration: none;
+        }
+/* part8 */
+        #footer {
+            margin-top: 30px;
+            grid-area: footer;
+            width: 1000px;
+            height: 100px;
+            background-color: rgb(245, 244, 244);
+        }
+        #footer .inner {
+            width: 650px;
+            height: 100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr*4;
+            grid-template-areas: 
+                'about service notice contact';
+            justify-items: center;
+        }
+        .title4 {
+            grid-area: title;
+            margin-top: 10px;
+            width: 150px;
+            height: 20px;
+        }
+        .title4 a {
+            font-size: 9px;
+            font-weight: 700;
+            text-decoration: none;
+            color: rgb(105, 105, 105);
+        }
+        .paragraph3 {
+            grid-area: paragraph;
+            width: 150px;
+            height: 65px;
+            margin-top: 5px;
+            font-size: 7px;
+            overflow: hidden;
+            background-color: rgba(245, 244, 244, 0.7);
+            transition: all 0.6s ease-in-out;
+        }
+        #footer .inner .about {
+            grid-area: about;
+            width: 150px;
+            height: 100px;
+            display: grid;
+            grid-template-rows: 1fr 2fr 1fr;
+            grid-template-areas: 
+                'title'
+                'paragraph'
+                'social';
+            position: relative;
+        }
+        #footer .inner .about .paragraph3 {
+            height: 30px;
+            position: absolute;
+        }
+        #footer .inner .about .paragraph3:hover {
+            height: 65px;
+        }
+        #footer .inner .about .social {
+            grid-area: social;
+            width: 150px;
+            height: 30px;
+            display: flex;
+        }
+        .img6 {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        #footer .inner .about .social .facebook .img6{
+            margin-left: 0px;
+        }
+        #footer .inner .service {
+            grid-area: service;
+            width: 150px;
+            height: 100px;
+            display: grid;
+            grid-template-rows: 1fr 3fr;
+            grid-template-areas: 
+                'title'
+                'paragraph';
+        }
+        #footer .inner .notice {
+            grid-area: notice;
+            width: 150px;
+            height: 100px;
+            display: grid;
+            grid-template-rows: 1fr 3fr;
+            grid-template-areas: 
+                'title'
+                'paragraph';
+        }
+        #footer .inner .contact {
+            grid-area: contact;
+            width: 150px;
+            height: 100px;
+            display: grid;
+            grid-template-rows: 1fr 2fr 1fr;
+            grid-template-areas: 
+                'title'
+                'paragraph'
+                'contact_method';
+            position: relative;
+        }
+        #footer .inner .contact .paragraph3 {
+            height: 30px;
+            position: absolute;
+        }
+        #footer .inner .contact .paragraph3:hover {
+            height: 65px;
+        }
+        #footer .inner .contact .contact_method {
+            grid-area: contact_method;
+            width: 150px;
+            height: 30px;
+        }
+        #footer .inner .contact .contact_method .phone {
+            width: 150px;
+            height: 10px;
+            display: flex;
+        }
+        #footer .inner .contact .contact_method .email {
+            width: 150px;
+            height: 10px;
+            display: flex;
+        }
+        .img7 {
+            width: 7px;
+            height: 7px;
+            margin-top: 1.5px;
+        }
+        .number {
+            font-size: 7px;
+            color: rgb(105, 105, 105);
+            margin-left: 10px;
+            line-height: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- part1 -->
+        <div class="header">
+            <div class="inner">
+                <div class="logo">
+                    <img src="images/logo.gif" alt="">
+                </div>
+                <div class="navigations">
+                    <div class="home">
+                        <img class="img1" src="images/home.png" alt="">
+                        <a href="#">HOME</a>
+                    </div>
+                    <div class="layout">
+                        <img class="img1" src="images/layout.png" alt="">
+                        <a class="layout_w" href="#">LAYOUT</a>
+                        <img class="img2" src="images/arrow-point-to-down.png" alt="">
+                        <div class="popup1">
+                            <div class="part">
+                                <a href="">HEADER</a>
+                            </div>
+                            <div class="part">
+                                <a href="">BANNER</a>
+                            </div>
+                            <div class="part">
+                                <a href="">GUIDE</a>
+                            </div>
+                            <div class="part">
+                                <a href="">TITLE</a>
+                            </div>
+                            <div class="part">
+                                <a href="">CATEGORY</a>
+                            </div>
+                            <div class="part">
+                                <a href="">INTRODUCTION</a>
+                            </div>
+                            <div class="part">
+                                <a href="">EXHIBITION</a>
+                            </div>
+                            <div class="part">
+                                <a href="">FOOTER</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="megamenu">
+                        <img class="img1" src="images/menu.png" alt="">
+                        <a class="megamenu_w" href="#">MEGAMENU</a>
+                        <img class="img2" src="images/arrow-point-to-down.png" alt="">
+                        <div class="popup2">
+                            <div class="part1">
+                                <a href="#guide">GUIDE</a>
+                            </div>
+                            <div class="part1">
+                                <a href="#category">CATEGORY</a>
+                            </div>
+                            <div class="part1">
+                                <a href="#introduction">INTRODUCTION</a>
+                            </div>
+                            <div class="part1">
+                                <a href="#exhibition">EXHIBITION</a>
+                            </div>
+                            <div class="part1">
+                                <a href="#footer">CONTACT</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login">
+                        <img class="img1" src="images/user (1).png" alt="">
+                        <a class="login_w" href="#">LOGIN</a>
+                        <img class="img2" id="login_triangle" src="images/arrow-point-to-down.png" alt="">
+                        <div class="popup3">
+                            <p>Travelling in China</p>
+                            <input type="text" name="account" placeholder="Phone, email or username" id="i1"> <br>
+                            <input type="password" name="password" placeholder="Password" id="i2"> <br>
+                            <input type="button" name="login" value="Log in" id="i3">
+                        </div>
+                    </div>
+                    <div class="about">
+                        <img class="img1" src="images/information-button.png" alt="">
+                        <a href="#">ABOUT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let login_btn=document.getElementById('i3')
+            let login_w=document.getElementsByClassName('login_w')[0]
+            let pop3=document.getElementsByClassName('popup3')[0]
+            let triangle=document.getElementById('login_triangle')
+            login_btn.onclick=function () {
+                login_w.innerHTML="LOGOUT"
+                pop3.style.visibility='hidden'
+                triangle.style.visibility='hidden'
+            }
+            login_w.onclick=function () {
+                login_w.innerHTML="LOGIN"
+                pop3.style.visibility='visible'
+                triangle.style.visibility='visibles'
+            }
+        </script>
+        <!-- part2 -->
+        <div class="banner">
+            <div class="words">
+                <p class="p1">Ni hao, friends!</p>
+                <p class="p2">Lorem ipsum dolor sit amet consectetur</p>
+            </div>
+        </div>
+        <!-- part3 -->
+        <div id="guide">
+            <div class="guide_inner">
+                <div class="discover">
+                    <div class="title">
+                        <a href="#">DISCOVER</a>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="picture">
+                        <img class="img3" src="images/magnifying-glass.png" alt="">
+                    </div>
+                    <div class="paragraph">
+                        <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                    </div>
+                </div>
+                <div class="leisure">
+                    <div class="title">
+                        <a href="#">LEISURE</a>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="picture">
+                        <img class="img3" src="images/megaphone.png" alt="">
+                    </div>
+                    <div class="paragraph">
+                        <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                    </div>
+                </div>
+                <div class="news">
+                    <div class="title">
+                        <a href="#">NEWS</a>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="picture">
+                        <img class="img3" src="images/newspaper-folded.png" alt="">
+                    </div>
+                    <div class="paragraph">
+                        <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- part4 -->
+        <div class="title">
+            <p class="p1">Travelling in China</p>
+            <p class="p2">Lorem ipsum dolor sit amet consectetur adiplscing elit</p>
+        </div>
+        <!-- part5 -->
+        <div id="category">
+            <div class="natural">
+                <div class="picture">
+                    <img class="img4" src="images/leaf.png" alt="">
+                </div>
+                <div class="title1">
+                    <a href="#">NATURAL SCENERY</a>
+                </div>
+                <div class="paragraph1">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="cultural">
+                <div class="picture">
+                    <img class="img4" src="images/user.png" alt="">
+                </div>
+                <div class="title1">
+                    <a href="#">CULTURAL ATTRACTIONS</a>
+                </div>
+                <div class="paragraph1">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="modern">
+                <div class="picture">
+                    <img class="img4" src="images/building.png" alt="">
+                </div>
+                <div class="title1">
+                    <a href="#">MODERN CIVILIZATION</a>
+                </div>
+                <div class="paragraph1">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="study">
+                <div class="picture">
+                    <img class="img4" src="images/book.png" alt="">
+                </div>
+                <div class="title1">
+                    <a href="#">STUDY</a>
+                </div>
+                <div class="paragraph1">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="customs">
+                <div class="picture">
+                    <img class="img4" src="images/google-docs.png" alt="">
+                </div>
+                <div class="title1">
+                    <a href="#">CUSTOMS</a>
+                </div>
+                <div class="paragraph1">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="guider">
+                <div class="picture">
+                    <img class="img4" src="images/questions.png" alt="">
+                </div>
+                <div class="title1">
+                    <a href="#">GUIDE</a>
+                </div>
+                <div class="paragraph1">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+        </div>
+        <!-- part6 -->
+        <div id="introduction">
+            <div class="title">
+                <p>Introduction</p>
+                <div id="btn"></div>
+            </div>
+            <div class="dalian">
+                <div class="picture_outer">
+                    <div class="picture2">
+                        <img class="img5" src="images/1.jpg" alt="">
+                    </div>
+                </div>
+                <div class="paragraph2">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="dl_read">
+                <a href="#">Read more</a>
+            </div>
+            <div class="beijing">
+                <div class="picture_outer">
+                    <div class="picture2">
+                        <img class="img5" src="images/2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="paragraph2">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="bj_read">
+                <a href="#">Read more</a>
+            </div>
+            <div class="shanghai">
+                <div class="picture_outer">
+                    <div class="picture2">
+                        <img class="img5" src="images/3.jpg" alt="">
+                    </div>
+                </div>
+                <div class="paragraph2">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="sh_read">
+                <a href="#">Read more</a>
+            </div>
+            <div class="chengdu">
+                <div class="picture_outer">
+                    <div class="picture2">
+                        <img class="img5" src="images/4.jpg" alt="">
+                    </div>
+                </div>
+                <div class="paragraph2">
+                    <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                </div>
+            </div>
+            <div class="cd_read">
+                <a href="#">Read more</a>
+            </div>
+        </div>
+        <!-- part7 -->
+        <div id="exhibition">
+            <div class="section1">
+                <div class="title2">
+                    <p>Exhibition</p>
+                    <div id="btn">
+                        <i id="btn_circle"></i>
+                    </div>
+                    <div id="btn_2">
+                        <div id="btn1"></div>
+                        <div id="btn2"></div>
+                    </div>
+                </div>
+                <div class="pictures">
+                    <div class="pic_outer">
+                        <div class="pic">
+                        </div>
+                    </div>
+                    <div class="pic_outer">
+                        <div class="pic">
+                        </div>
+                    </div>
+                    <div class="pic_outer">
+                        <div class="pic">
+                        </div>
+                    </div>
+                    <div class="pic_outer">
+                        <div class="pic">
+                        </div>
+                    </div>
+                    <div class="pic_outer">
+                        <div class="pic">
+                        </div>
+                    </div>
+                    <div class="pic_outer">
+                        <div class="pic">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section2">
+                <div class="title3">
+                    <p>Latest Articles</p>
+                    <div id="btn">
+                        <i id="btn_circle"></i>
+                    </div>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="#" target="_blank">Giving and receiving business gi...</a></li>
+                        <li><a href="#" target="_blank">China and the business banquet</a></li>
+                        <li><a href="#" target="_blank">Staying safe while doing business</a></li>
+                        <li><a href="#" target="_blank">Travel basics for China (Visas,m...</a></li>
+                        <li><a href="#" target="_blank">Business attire in China</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            let btn2=document.getElementById('btn2')
+            let btn1=document.getElementById('btn1')
+            let pics=document.getElementsByClassName('pic')
+            // console.log(pics[0])
+            // console.log(btn1)
+            let a='images/banner-'
+            let b='.jpg'
+            for (let i=0; i<pics.length; i++){
+                c=i+1
+                u=a+c+b
+                pics[i].style.backgroundImage=`url(${u})`
+            }
+            // pics[0].style.backgroundImage="url('期末大作业/images/banner-7.jpg')"
+            btn2.onmouseover=function () {
+                let a='images/banner-'
+                let b='.jpg'
+                btn1.style.backgroundColor='rgb(161, 164, 169)'
+                btn2.style.backgroundColor='rgb(73, 75, 77)'
+                for (let i =0; i<pics.length; i++){
+                    c=i+7
+                    u=a+c+b
+                    pics[i].style.backgroundImage=`url(${u})`
+                }
+            }
+            btn1.onmouseover=function () {
+                let a='images/banner-'
+                let b='.jpg'
+                btn1.style.backgroundColor='rgb(73, 75, 77)'
+                btn2.style.backgroundColor='rgb(161, 164, 169)'
+                for (let i =0; i<pics.length; i++){
+                    c=i+1
+                    u=a+c+b
+                    pics[i].style.backgroundImage=`url(${u})`
+                }
+            }
+        </script>
+        <!-- part8 -->
+        <div id="footer">
+            <div class="inner">
+                <div class="about">
+                    <div class="title4">
+                        <a href="#">ABOUT</a>
+                    </div>
+                    <div class="paragraph3">
+                       <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                    </div>
+                    <div class="social">
+                        <a href="#">
+                            <div class="facebook">
+                                <img class="img6" src="images/facebook.png" alt="">
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="twitter">
+                                <img class="img6" src="images/twitter.png" alt="">
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="instagram">
+                                <img class="img6" src="images/instagram.png" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="title4">
+                        <a href="#">SERVICE</a>
+                    </div>
+                    <div class="paragraph3">
+                       <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                    </div>
+                </div>
+                <div class="notice">
+                    <div class="title4">
+                        <a href="#">NOTICE</a>
+                    </div>
+                    <div class="paragraph3">
+                       <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                    </div>
+                </div>
+                <div class="contact">
+                    <div class="title4">
+                        <a href="#">CONTACT</a>
+                    </div>
+                    <div class="paragraph3">
+                       <p>This module shows a list of the currently published Articles which have the highest number of page views.The Module Type name for this Module is "mod_articles_popular". The Help Screen for this Module.</p>
+                    </div>
+                    <div class="contact_method">
+                        <div class="phone">
+                            <img class="img7" src="images/call.png" alt="">
+                            <p class="number">+86 186 8169 3111</p>
+                        </div>
+                        <div class="email">
+                            <img class="img7" src="images/email.png" alt="">
+                            <p class="number">joycehxw@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
